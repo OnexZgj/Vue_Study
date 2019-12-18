@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="lib/vue-2.4.0.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		
+		<div id="app">
+			
+			<h4 v-text="msg">============</h4>
+			
+			<p v-cloak>======={{info}}</p>
+			
+			<p v-html="msg2">====这是第二条信息</p>
+			
+			<!-- v-bind的使用，可以直接省略为: -->
+			<input type="button" name="" id="btn" :value="info+'123'" />
+			
+			<input type="button" name="" id="" value="点击"  @click="show"/>
+			
+			
+		</div>
+		
+		
+		<script type="text/javascript">
+			var vue = new Vue({
+				el:'#app',
+				data:{
+					msg:'welcome to vue',
+					info:'this is prefect world',
+					msg2:'<h1>完美世界</h1>'
+				},
+				methods:{
+					show:function(){
+						alert('点击了')
+					}
+						
+					
+				}
+			});
+		</script>
+		
+		
+		
+	</body>
+</html>
+
+
+<!-- 1. 如何定义一个基本的Vue代码结构 -->
+<!-- 2. 插值表达式 和  v-text   -->
+<!-- 3. v-cloak -->
+<!-- 4. v-html -->
+<!-- 5. v-bind   Vue提供的属性绑定机制   缩写是 : -->
+<!-- 6. v-on     Vue提供的事件绑定机制   缩写是 @ -->

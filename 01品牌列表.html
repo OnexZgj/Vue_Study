@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+
+		<script src="lib/vue-2.4.0.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" type="text/css" href="lib/bootstrap-3.3.7.css" />
+	</head>
+	<body>
+		<div id="app">
+
+
+			<div class="panel-body form-inline">
+
+				<label>
+					id
+					<input type="text" class="form-control" name="" id="" value="" v-model="id" />
+				</label>
+				<label>
+					name
+					<input type="text" class="form-control" name="" id="" value="" v-model="name" />
+				</label>
+				<label>
+
+					<input type="button" class="btn btn-primary" name="" id="" value="添加" @click="add" />
+				</label>
+
+			</div>
+
+
+			<table class="table table-bordered table-hover table-striped">
+				<thead>
+					<tr>
+						<th>Id</th>
+						<th>Name</th>
+						<th>Ctime</th>
+						<th>Operation</th>
+					</tr>
+
+				</thead>
+
+				<tbody>
+					<tr v-for="item in list" :key="item.id">
+						<td>{{item.id}}</td>
+						<td>{{item.name}}</td>
+						<td>{{item.Ctime}}</td>
+						<td>
+							<a href="" @click.prevent="del(item.id)">删除</a>
+						</td>
+					</tr>
+				</tbody>
+
+			</table>
+
+
+		</div>
+
+		<script type="text/javascript">
+			var vue = new Vue({
+				el: "#app",
+				data: {
+					id: '',
+					name: '',
+					keywords: '',
+					list: [{
+							id: 1,
+							name: '宝马',
+							Ctime: new Date()
+						},
+						{
+							id: 2,
+							name: '路虎',
+							Ctime: new Date()
+						}
+					]
+				},
+				methods: {
+
+					add() {
+						var car = {
+							id: this.id,
+							name: this.name,
+							Ctime: new Date()
+						};
+						this.list.push(car);
+						this.id = "";
+						this.name = "";
+					},
+
+					del(id) {
+						var index = this.list.findIndex(item => {
+							if (item.id == id) {
+								return true;
+							}
+						});
+
+
+						this.list.splice(index, 1);
+
+					}
+				}
+			})
+		</script>
+
+	</body>
+</html>
