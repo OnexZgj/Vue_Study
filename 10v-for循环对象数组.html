@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="lib/vue-2.4.0.js"></script>
+
+</head>
+<body>
+    <div id="app">
+<!--        v-for迭代数字-->
+        <p v-for="count in 10">这是第{{count}}数</p>
+
+<!--        循环迭代对象数组-->
+        <p v-for="(user,i) in list">ID:{{user.id}}-----name:{{user.name}}}</p>
+
+<!--        val是对象的值，key是对象的key,还有一个额外的参数是索引即i-->
+        <p v-for="(val,key,i) in user">值是{{val}}====键是:{{key}}====索引是{{i}}</p>
+
+    </div>
+
+    <script>
+
+        var vue=new Vue({
+            el:"#app",
+            data:{
+
+                user: {
+                    id: 1,
+                    name: '托尼·屎大颗',
+                    gender: '男'
+                },
+
+
+                list:[
+                    {id:1,name:'zs1'},
+                    {id:2,name:'zs2'},
+                    {id:3,name:'zs3'},
+                    {id:4,name:'zs4'}
+                ]
+            },
+        });
+
+    </script>
+</body>
+</html>
